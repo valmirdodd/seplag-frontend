@@ -5,7 +5,6 @@ Frontend criado como parte do teste para a Seplag.
 Ele foi desenvolvida em angular 9.
 
 # dependências
-
 @angular/animations: 9.1.6
 
 @angular/cdk: 9.2.4
@@ -34,7 +33,7 @@ tslib: 1.10.0
 
 zone.js: 0.10.2
 
-# devDependencies
+# dependências do ambiente de desenvolvimento
 @angular-devkit/build-angular: 0.901.5
 
 @angular/cli: 9.1.5
