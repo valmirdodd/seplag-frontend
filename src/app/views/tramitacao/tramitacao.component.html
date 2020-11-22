@@ -1,0 +1,62 @@
+<mat-card class="lightGreen mat-elevation-z3">
+    <mat-card-title class="title">Tramitação de Benefícios</mat-card-title>
+    <mat-card-subtitle class="subtitle">Acompanhamento da tramitação do benefício
+    </mat-card-subtitle>
+
+    <form>
+        <mat-form-field>
+            <input type="number" matInput placeholder="Matrícula do servidor" name="matricula"
+                [(ngModel)]="servidor.matricula" class="mat">
+        </mat-form-field>
+        <button mat-raised-button (click)="pesquisarServidorPorMatricula()" class="boldGreen">Pesquisar</button>
+
+        <div class="mat-elevation-z3">
+            <table>
+                <tr>
+                    <td><b>Cpf</b></td>
+                    <td><b>Nome</b></td>
+                    <td><b>Órgao</b></td>
+                </tr>
+                <tr style="border-top: 1px;">
+                    <td>{{cpf}}</td>
+                    <td>{{nome}}</td>
+                    <td>{{orgao}}</td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+</mat-card>
+
+<div class="mat-elevation-z3">
+    <table mat-table [dataSource]="tramitacoes">
+        <!-- Coluna idBeneficio -->
+        <ng-container matColumnDef="idBeneficio">
+            <th mat-header-cell *matHeaderCellDef>Id Benefício</th>
+            <td mat-cell *matCellDef="let row">{{row.idBeneficio}}</td>
+        </ng-container>
+
+        <!-- Coluna dtTramitacao -->
+        <ng-container matColumnDef="dtTramitacao">
+            <th mat-header-cell *matHeaderCellDef>Data Tramitação</th>
+            <td mat-cell *matCellDef="let row">{{row.dtTramitacao}}</td>
+        </ng-container>
+
+        <!-- Coluna descricaoLocalTramitacaoOrigem -->
+        <ng-container matColumnDef="descricaoLocalTramitacaoOrigem">
+            <th mat-header-cell *matHeaderCellDef>Local Tramitação Orígem</th>
+            <td mat-cell *matCellDef="let row">{{row.descricaoLocalTramitacaoOrigem}}</td>
+        </ng-container>
+
+        <!-- Coluna descricaoLocalTramitacaoDestino -->
+        <ng-container matColumnDef="descricaoLocalTramitacaoDestino">
+            <th mat-header-cell *matHeaderCellDef>Local Tramitação Destino</th>
+            <td mat-cell *matCellDef="let row">{{row.descricaoLocalTramitacaoDestino}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <!-- <button disabled={{possuiBeneficioCadastrado}} mat-raised-button (click)="pesquisarServidorPorMatricula()"
+        class="boldGreen">Inserir</button> -->
+</div>

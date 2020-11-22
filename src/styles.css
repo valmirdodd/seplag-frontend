@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.green {
+    color: rgb(210, 210, 210);
+    background-color: rgb(25, 110, 60)
+}
+
+.boldGreen {
+    color: rgb(25, 110, 60);
+    background-color: rgb(234, 234, 234);
+}
+
+.lightGreen {
+    color: rgb(25, 110, 60);
+    background-color: #FFF;
+}
+
+.boldRed {
+    color: rgb(234, 234, 234);
+    background-color: rgb(250, 50, 50);
+}
+

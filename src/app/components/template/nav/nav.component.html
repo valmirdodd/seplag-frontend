@@ -1,0 +1,30 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav boldGreen" mode="side"
+    opened
+    fixedInViewport="true"
+    fixedTopGap="64">
+        <mat-nav-list class="nav-list" >
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">
+                    home
+                </i>
+                Início
+            </a>
+            <a mat-list-item routerLink="/beneficios">
+                <i class="material-icons">
+                    add_task
+                </i>
+                Benefícios
+            </a>
+            <a mat-list-item routerLink="/tramitacao">
+                <i class="material-icons">
+                    list
+                </i>
+                Tramitação
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="lightGreen content" >
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

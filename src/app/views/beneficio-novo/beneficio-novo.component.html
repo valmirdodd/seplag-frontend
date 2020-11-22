@@ -1,0 +1,52 @@
+<mat-card class="lightGreen mat-elevation-z3">
+    <mat-card-title class="title">Cadastrar Novo Benefício</mat-card-title>
+    <mat-card-subtitle class="subtitle">Servidor {{matricula}}: {{nome}}
+    </mat-card-subtitle>
+
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Descrição do benefício:</mat-label>
+            <label for="descricaoBeneficio">Descrição do benefício:</label>
+            <input id="descricaoBeneficio" type="text" matInput placeholder="Descrição do benefício"
+                name="descricaoBeneficio" [(ngModel)]="beneficio.descricaoBeneficio" class="descricaoBeneficio">
+        </mat-form-field>
+    </form>
+
+    <div class="mat-elevation-z3">
+        <table mat-table [dataSource]="categoriasDocumentos">
+            <!-- Coluna idCategoriaDocumento -->
+            <ng-container matColumnDef="idCategoriaDocumento">
+                <th mat-header-cell *matHeaderCellDef>Id Categoria</th>
+                <td mat-cell *matCellDef="let row">{{row.idCategoriaDocumento}}</td>
+            </ng-container>
+
+            <!-- Coluna abreviacaoCategoria -->
+            <ng-container matColumnDef="abreviacaoCategoria">
+                <th mat-header-cell *matHeaderCellDef>Abreviacao</th>
+                <td mat-cell *matCellDef="let row">{{row.abreviacaoCategoria}}</td>
+            </ng-container>
+
+            <!-- Coluna descricaoCategoria -->
+            <ng-container matColumnDef="descricaoCategoria">
+                <th mat-header-cell *matHeaderCellDef>Descricao Completa</th>
+                <td mat-cell *matCellDef="let row">{{row.descricaoCategoria}}</td>
+            </ng-container>
+
+            <!-- Coluna uploadPDF -->
+            <ng-container matColumnDef="uploadPDF">
+                <th mat-header-cell *matHeaderCellDef>Upload PDF</th>
+                <td mat-cell *matCellDef="let row">
+                    <a routerLink="/beneficionovo/upload/{{row.idCategoriaDocumento}}">
+                        <i class="material-icons upload">
+                            upload
+                        </i>
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <button mat-raised-button (click)="beneficioNovoSalvar()" class="boldGreen buttonSalvar">Salvar</button>
+</mat-card>
